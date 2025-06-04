@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function OfferCoaching() {
+export default function OfferCoaching({ handleClick }) {
   const items = [
     "2x tjedno live pozivi (strategije, analiza, optimizacija)",
     "Detaljno izrađena marketinška strategija",

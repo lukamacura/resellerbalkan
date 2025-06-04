@@ -16,20 +16,21 @@ import Preloader from "../components/Preloader";
 
 
 export default function Home() {
-  const handleClick = async () => {
-    const res = await fetch("/api/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ package: "vendor" }), // npr. vendor paket
-    });
+ const handleClick = async (packageName) => {
+  const res = await fetch("/api/checkout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ package: packageName }), // sad koristi prosleđeni argument
+  });
 
-    const data = await res.json();
-    if (data.url) {
-      window.location.href = data.url; // Redirekcija na Stripe Checkout
-    }
-  };
+  const data = await res.json();
+  if (data.url) {
+    window.location.href = data.url;
+  }
+};
 
-  return (
+
+return (
    <div className="bg-[#121212] text-white min-h-screen">
 
       <Preloader />
@@ -51,13 +52,13 @@ export default function Home() {
       <HowItWorks/>
 
       {/* Discord premium */}
-      <OfferPremium/>
+      <OfferPremium handleClick={handleClick} />
 
       {/* 1 on 1 Coaching */}
-      <OfferCoaching/>
+      <OfferCoaching handleClick={handleClick} />
 
       {/* Vendori */}
-      <OfferVendor/>
+      <OfferVendor handleClick={handleClick} />
 
       {/* Reviews */}
       <ReviewsSection/>

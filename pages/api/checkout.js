@@ -10,19 +10,24 @@ export default async function handler(req, res) {
     const { package: selectedPackage } = req.body;
 
     const packages = {
-      vendor: {
-        name: "Vendor Paket",
-        amount: 1500, // 15.00 €
-      },
-      premium: {
-        name: "Premium Program",
-        amount: 4000, // 40.00 €
-      },
-      coaching: {
-        name: "1 na 1 Coaching",
-        amount: 15000, // 150.00 €
-      }
-    };
+  "vendor-airpods": {
+    name: "Vendor Paket – AirPods",
+    amount: 1500, // 15.00 €
+  },
+  "vendor-parfemi": {
+    name: "Vendor Paket – Parfemi",
+    amount: 1500,
+  },
+  premium: {
+    name: "Premium Program",
+    amount: 4000,
+  },
+  coaching: {
+    name: "1 na 1 Coaching",
+    amount: 15000,
+  },
+};
+
 
     const selected = packages[selectedPackage];
 

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function OfferPremium() {
+export default function OfferPremium({ handleClick }) {
   const items = [
     "Potpuni uvod u reselling",
     "Strategije za rad bez kapitala",

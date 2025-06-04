@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        'pulse-slow': 'pulse 3s ease-in-out infinite',
+      },
       fontFamily: {
         urbanist: ["var(--font-urbanist)"],
         inter: ["var(--font-inter)"],

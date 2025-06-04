@@ -14,13 +14,13 @@ export default function Footer() {
                 height={60}
                 />
           <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="#">
+            <a href="https://www.instagram.com/resellerbalkan2/">
               <img src="/icons/footer1.png" alt="Instagram" className="w-7" />
             </a>
-            <a href="#">
+            <a href="mailto:marko.radovic2904@gmail.com">
               <img src="/icons/footer2.png" alt="Email" className="w-7" />
             </a>
-            <a href="#">
+            <a href="https://discord.com/invite/NktWQZPhMS?fbclid=PAZXh0bgNhZW0CMTEAAad4LY9mUR7_eXOWHSPmgnnvoxBAWKZp-MST4YKHm_0AOT70E8ah1eRJP3NMow_aem_TMoANqY7bNp6pBatl34bSA">
               <img src="/icons/footer3.png" alt="Discord" className="w-7" />
             </a>
           </div>
