@@ -16,7 +16,7 @@ export default function OfferPremium({ handleClick }) {
   ];
 
   return (
-    <section id="ponuda" className="bg-[#121212] text-white py-20 px-6 md:px-24 font-inter">
+    <section id="ponuda" className="bg-[#121212] text-white py-10 sm:py-20 px-6 md:px-24 font-inter">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
         
         {/* Slika levo */}
@@ -30,7 +30,7 @@ export default function OfferPremium({ handleClick }) {
           <img
             src="/images/discord.png"
             alt="Premium program knjiga"
-            className="w-[280px] md:w-[340px]"
+            className="w-[280px] md:w-[440px] md:max-h-[440px]  max-h-[240px] object-contain"
           />
         </motion.div>
 
@@ -74,14 +74,25 @@ export default function OfferPremium({ handleClick }) {
             ))}
           </div>
 
+            <div className="flex gap-2 flex-col sm:flex-row items-center">
           <motion.button
             onClick={() => handleClick("premium")}
-            className="block w-full sm:inline-block sm:w-auto text-center bg-yellow-400 font-urbanist text-black px-6 py-6 sm:py-3 rounded-lg font-bold shadow hover:opacity-90 transition"
+            className="w-full whitespace-nowrap sm:w-auto bg-yellow-400 font-urbanist text-black px-6 py-6 sm:py-3 rounded-lg font-bold shadow hover:opacity-90 transition"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
             🛒 Kupi odmah
           </motion.button>
+
+          <div className="flex items-center gap-2 bg-white/5 backdrop-blur-md px-3 py-2 rounded-lg border border-white/10 shadow-sm ">
+            <span className="text-xs text-gray-300 font-medium">
+              Plaćanje se vrši bezbedno uz {" "}
+              <img src="/icons/stripe.png" alt="Stripe" className="w-16 h-auto inline-block" />
+
+            </span>
+          </div>
+        </div>
+
         </motion.div>
       </div>
     </section>

@@ -46,8 +46,18 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-center md:col-span-3 text-sm text-gray-400 mt-8">
-          © 2025 ResellerBalkan. Sva prava zadržana.
+          © 2025 ResellerBalkan. Sva prava zadržana. <br />
+          Developed by{" "}
+          <a
+            href="https://www.macura-design.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white transition-colors duration-200"
+          >
+            Macura Design
+          </a>
         </div>
+
       </div>
     </footer>
   );
