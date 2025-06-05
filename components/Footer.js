@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Logo & Ikonice */}
         <div className="flex flex-col md:flex-row items-center gap-6 md:col-span-1">
           <Image
-                src="/images/logo.png"
+                src="/images/logo.PNG"
                 alt="Reseller Balkan Logo"
                 width={140}
                 height={60}
