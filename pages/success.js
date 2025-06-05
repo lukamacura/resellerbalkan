@@ -11,12 +11,12 @@ export default function Success() {
 
       <h1 className="text-4xl md:text-5xl font-bold mb-4 font-urbanist">
         <span className="bg-gradient-to-r from-[#FFD600] to-[#FF7A00] bg-clip-text text-transparent">
-          Uplata uspešna!
+          Uplata uspješna!
         </span>
       </h1>
 
       <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl">
-        Hvala ti na poverenju 💛<br />
+        Hvala ti na povjerenju 💛<br />
         Sve potrebne informacije stižu ti uskoro na email.
         Dobrodošao u <strong>Reseller Balkan</strong> zajednicu!
       </p>

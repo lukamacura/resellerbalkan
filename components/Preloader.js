@@ -7,7 +7,7 @@ export default function Preloader() {
   const [currentSlogan, setCurrentSlogan] = useState("");
 
   const slogans = [
-    "Tvoj biznis počinje ovde...",
+    "Tvoj biznis počinje ovde 👆",
     "Vrijeme je za zaradu 💸",
     "Od nule do prve prodaje 🚀"
   ];

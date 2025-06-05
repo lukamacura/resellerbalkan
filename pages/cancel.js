@@ -3,7 +3,7 @@ export default function Cancel() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#121212] text-white font-inter px-6 text-center">
       
       <img
-        src="/icons/cancel.png" // 👈 možeš koristiti isti SVG kao za success, ali stilizovan za grešku
+        src="/icons/cancel.png"
         alt="Uplata otkazana"
         className="w-18 h-18 mb-6 animate-pulse-slow"
       />
