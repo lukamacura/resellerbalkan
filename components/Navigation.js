@@ -7,7 +7,7 @@ export default function Navigation() {
     <header className="w-full top-0 left-0 fixed flex z-50 justify-between font-urbanist items-center px-6 py-3 border-b border-[#424242] bg-[#0f0f0f] text-white">
       {/* Logo */}
       <div className="text-xl font-bold tracking-wide flex items-center gap-2">
-        <img src="/images/logo.png" alt="Reseller Balkan Logo" className="w-[120px]" />
+        <img src="/images/logo.PNG" alt="Reseller Balkan Logo" className="w-[120px]" />
       </div>
 
       {/* Hamburger Button */}
