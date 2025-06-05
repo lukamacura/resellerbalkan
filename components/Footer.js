@@ -39,7 +39,7 @@ export default function Footer() {
               <a href="#recenzije" className="hover:text-yellow-400">Recenzije</a>
             </li>
             <li>
-              <a href="#kontakt" className="hover:text-yellow-400">Kontakt</a>
+              <a href="#faq" className="hover:text-yellow-400">FAQ</a>
             </li>
           </ul>
         </div>

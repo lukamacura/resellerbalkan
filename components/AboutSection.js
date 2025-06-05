@@ -11,13 +11,16 @@ export default function AboutSection(){
             </span>
           </h2>
           <p className="text-lg text-gray-300 mb-6">
-            Znam da je teško krenuti od nule, i baš zato sam osmislio prvi Reselling program na Balkanu.
+            Zovem se <strong>Marko</strong>, i već preko 6 godina bavim se online prodajom. Kroz različite metode – od dropshippinga do resellinga – pronašao sam ono što stvarno radi. Strast prema patikama i odjeći pretvorio sam u posao, istražio stotine dobavljača i došao do provjerenih <strong>kontakata</strong> koji danas dostavljaju i u 24h.
           </p>
           <p className="text-lg leading-relaxed text-gray-300 mb-4">
-            Ja sam <strong>Marko</strong> i u online svijetu prodaje sam već preko 6 godina. Krenuo sam s raznim dropshipping metodama, a <strong>reselling</strong> u ovom obliku radim već sigurno 3 godine. Svoju strast prema patikama i odjeći sam iskoristio na najbolji mogući način. Oduvijek me zanimao taj omjer cijene i kvalitete koja se zapravo dobije kupnjom u klasičnim dućanima. Tako je i sve krenulo → istraživao sam i isprobavao stotine dobavljača dok nisam stupio u kontakt s provjereno najboljima. I dan danas radim s njima, a s vremenom nakon otvaranja reselling programa, upoznao sam i naše ljude s Balkana koji se bave istim poslom te s njima također surađujem u smislu balkanskih dobavljača koji nude dostavu i u 24 sata.
+            Baš zato sam pokrenuo <strong>prvi Reselling program na Balkanu</strong> – da ti olakšam početak.
           </p>
           <p className="text-lg leading-relaxed text-gray-300">
-            U mom <strong>reselling programu</strong> naučit ćeš sve o resellingu, prodaji i marketingu. Dobit ćeš pristup kontaktima provjerenih dobavljača s Balkana i ostatka svijeta. Također tu je i zajednica s ostalim članovima i Staff timom koji su uvijek otvoreni za bilo koji oblik pomoći. Omogućio sam i rad 1 na 1 gdje ti otkrivam sve one male detalje o marketingu i brendiranju koje će ti uveliko pomoći u početku tvog rada. Također tu su i live sastanci, kompletan angažman i još mnogo toga...
+            U programu ćeš naučiti <strong>sve</strong> o resellingu, prodaji i marketingu, dobiti pristup najboljim dobavljačima iz regije i svijeta, podršku zajednice i mogućnost rada 1 na 1 sa mnom. Čekaju te i live sastanci, alati i savjeti koje bih i ja volio da sam imao na početku.
+          </p>
+          <p className="text-lg leading-relaxed text-gray-300">
+            <strong>Tu sam da ti pomognem da kreneš odmah.</strong>
           </p>
         </div>
 
