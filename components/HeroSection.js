@@ -43,7 +43,8 @@ export default function HeroSection() {
 
       {/* IMAGE RIGHT */}
       <motion.div
-        className="relative mt-12 w-[300px] ml-auto md:mt-0"
+  className="relative mt-12 w-[220px] sm:w-[260px] md:w-[300px] ml-auto md:mt-0"
+
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
