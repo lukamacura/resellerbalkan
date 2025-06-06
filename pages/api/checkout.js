@@ -37,8 +37,7 @@ export default async function handler(req, res) {
 
       if (!session.customer_email) {
         console.error("❌ Email nije dostupan u checkout.session");
-        res.status(400).send("Email nije pronađen.");
-        return;
+        return res.status(400).send("Email nije pronađen.");
       }
 
       const packageMap = {
@@ -62,7 +61,7 @@ export default async function handler(req, res) {
       }
     }
 
-    // ✅ OVAJ return mora ostati na kraju funkcije
+    // ✅ ovo mora biti na kraju
     return res.status(200).json({ received: true });
   } else {
     res.setHeader("Allow", "POST");
