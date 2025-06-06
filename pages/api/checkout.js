@@ -8,31 +8,30 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { package: selectedPackage } = req.body;
-    console.log("API pozvan, paket:", selectedPackage);
 
     const packages = {
       "vendor-airpods": {
         name: "Vendor Paket – AirPods",
         amount: 1500,
-        description: "Dobavljači za AirPods i dodatke (Balkan, EU). Idealno za brzu preprodaju uz pouzeće.",
+        description: "Dobavljači za AirPods i dodatke (Balkan, EU). Idealno za preprodaju.",
         image: "https://resellerblkn.com/images/airpods.png",
       },
       "vendor-parfemi": {
         name: "Vendor Paket – Parfemi",
         amount: 1500,
-        description: "Provereni kontakti za parfeme s velikom maržom. Testirano u resell zajednici.",
+        description: "Kontakti za parfeme s visokom maržom. Testirano u resell zajednici.",
         image: "https://resellerblkn.com/images/parfemi.png",
       },
       premium: {
         name: "Premium Program",
         amount: 4000,
-        description: "Sve što ti treba da pokreneš profitabilan reselling biznis – od dobavljača do brandiranja.",
+        description: "11 modula, podrška, dobavljači, brendiranje, skaliranje.",
         image: "https://resellerblkn.com/images/discord.png",
       },
       coaching: {
         name: "1 na 1 Coaching",
         amount: 15000,
-        description: "Personalizirani program uz mentora – strategija, analiza i direktna pomoć u rastu tvog brenda.",
+        description: "Mentoring i strategija za razvoj tvog online brenda.",
         image: "https://resellerblkn.com/images/discord_pro.png",
       },
     };
@@ -61,6 +60,9 @@ export default async function handler(req, res) {
           },
         ],
         mode: "payment",
+        metadata: {
+          package: selectedPackage,
+        },
         success_url: `${req.headers.origin}/success`,
         cancel_url: `${req.headers.origin}/cancel`,
       });
