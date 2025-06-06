@@ -37,14 +37,15 @@ export default async function handler(req, res) {
 
       if (!session.customer_email) {
         console.error("❌ Email nije dostupan u checkout.session");
-        return res.status(400).send("Email nije pronađen.");
+        res.status(400).send("Email nije pronađen.");
+        return;
       }
 
       const packageMap = {
         "premium": "Premium Program",
         "coaching": "1 na 1 Coaching",
         "vendor-airpods": "Vendor Paket – AirPods",
-        "vendor-parfemi": "Vendor Paket – Parfemi"
+        "vendor-parfemi": "Vendor Paket – Parfemi",
       };
 
       const userPackage = packageMap[session.metadata?.package] || "Nepoznat paket";
@@ -61,7 +62,7 @@ export default async function handler(req, res) {
       }
     }
 
-    // ✅ ovaj return mora da postoji
+    // ✅ OVAJ return mora ostati na kraju funkcije
     return res.status(200).json({ received: true });
   } else {
     res.setHeader("Allow", "POST");
