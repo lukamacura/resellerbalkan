@@ -16,18 +16,29 @@ import Preloader from "../components/Preloader";
 
 
 export default function Home() {
- const handleClick = async (packageName) => {
-  const res = await fetch("/api/checkout", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ package: packageName }), // sad koristi prosleđeni argument
-  });
+const handleClick = async (packageName) => {
+  try {
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ package: packageName }),
+    });
 
-  const data = await res.json();
-  if (data.url) {
-    window.location.href = data.url;
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      console.error("❌ Nema URL u odgovoru:", data);
+      alert("Došlo je do greške pri otvaranju Stripe Checkout-a.");
+    }
+  } catch (err) {
+    console.error("❌ Greška u handleClick:", err);
+    alert("Greška pri povezivanju sa serverom.");
   }
 };
+
+
 
 
 return (
