@@ -1,79 +1,70 @@
-// pages/api/checkout.js
+import { buffer } from "micro";
 import Stripe from "stripe";
+import { Resend } from "resend";
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-11-15",
 });
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { package: selectedPackage } = req.body;
+    const sig = req.headers["stripe-signature"];
+    const buf = await buffer(req);
 
-    const packages = {
-      "vendor-airpods": {
-        name: "Vendor Paket – AirPods",
-        amount: 1500,
-        description: "Dobavljači za AirPods i dodatke (Balkan, EU). Idealno za preprodaju.",
-        image: "https://resellerblkn.com/images/airpods.png",
-      },
-      "vendor-parfemi": {
-        name: "Vendor Paket – Parfemi",
-        amount: 1500,
-        description: "Kontakti za parfeme s visokom maržom. Testirano u resell zajednici.",
-        image: "https://resellerblkn.com/images/parfemi.png",
-      },
-      premium: {
-        name: "Premium Program",
-        amount: 4000,
-        description: "11 modula, podrška, dobavljači, brendiranje, skaliranje.",
-        image: "https://resellerblkn.com/images/discord.png",
-      },
-      coaching: {
-        name: "1 na 1 Coaching",
-        amount: 15000,
-        description: "Mentoring i strategija za razvoj tvog online brenda.",
-        image: "https://resellerblkn.com/images/discord_pro.png",
-      },
-    };
-
-    const selected = packages[selectedPackage];
-
-    if (!selected) {
-      return res.status(400).json({ error: "Nepoznat paket" });
-    }
+    let event;
 
     try {
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        line_items: [
-          {
-            price_data: {
-              currency: "eur",
-              product_data: {
-                name: selected.name,
-                description: selected.description,
-                images: [selected.image],
-              },
-              unit_amount: selected.amount,
-            },
-            quantity: 1,
-          },
-        ],
-        mode: "payment",
-        metadata: {
-          package: selectedPackage,
-        },
-        success_url: `${req.headers.origin}/success`,
-        cancel_url: `${req.headers.origin}/cancel`,
-      });
-
-      return res.status(200).json({ url: session.url });
+      event = stripe.webhooks.constructEvent(
+        buf,
+        sig,
+        process.env.STRIPE_WEBHOOK_SECRET
+      );
     } catch (err) {
-      console.error("Greška u Stripe Checkout:", err);
-      return res.status(500).json({ error: err.message });
+      console.error("❌ Webhook signature error:", err.message);
+      return res.status(400).send(`Webhook Error: ${err.message}`);
     }
+
+    if (event.type === "checkout.session.completed") {
+      const session = event.data.object;
+
+      if (!session.customer_email) {
+        console.error("❌ Email nije dostupan u checkout.session");
+        return res.status(400).send("Email nije pronađen.");
+      }
+
+      const packageMap = {
+        "premium": "Premium Program",
+        "coaching": "1 na 1 Coaching",
+        "vendor-airpods": "Vendor Paket – AirPods",
+        "vendor-parfemi": "Vendor Paket – Parfemi"
+      };
+
+      const userPackage = packageMap[session.metadata?.package] || "Nepoznat paket";
+
+      try {
+        await resend.emails.send({
+          from: "info@resellerblkn.com",
+          to: session.customer_email,
+          subject: "Hvala na kupovini – ResellerBalkan",
+          html: `<p>Uspešno ste platili <strong>${userPackage}</strong>. Pristup stiže uskoro!</p>`,
+        });
+      } catch (err) {
+        console.error("❌ Greška u slanju emaila:", err);
+      }
+    }
+
+    // ✅ ovaj return mora da postoji
+    return res.status(200).json({ received: true });
   } else {
     res.setHeader("Allow", "POST");
-    res.status(405).end("Method Not Allowed");
+    return res.status(405).end("Method Not Allowed");
   }
 }
