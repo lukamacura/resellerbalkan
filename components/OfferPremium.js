@@ -86,7 +86,7 @@ export default function OfferPremium({ handleClick }) {
 
           <div className="flex items-center gap-2 bg-white/5 backdrop-blur-md px-3 py-2 rounded-lg border border-white/10 shadow-sm ">
             <span className="text-xs text-gray-300 font-medium">
-              Plaćanje se vrši bezbedno uz {" "}
+              Plaćanje se vrši sigurno uz {" "}
               <img src="/icons/stripe.png" alt="Stripe" className="w-16 h-auto inline-block" />
 
             </span>
