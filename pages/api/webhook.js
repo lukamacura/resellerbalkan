@@ -49,12 +49,12 @@ export default async function handler(req, res) {
 
     // Nazivi paketa
     const packageMap = {
-      premium: "Premium Program",
-      coaching: "1 na 1 Coaching",
       "vendor-airpods": "Vendor Paket – AirPods",
       "vendor-parfemi": "Vendor Paket – Parfemi",
+      premium:        "Premium Program",
+      coaching:       "1 na 1 Coaching",
     };
-    const userPackage = packageMap[pkg] || "Nepoznat paket";
+    const userPackage = packageMap[pkg] || pkg || "Nepoznat paket";
 
     // Discord linkovi po paketima
     const linkMap = {
@@ -78,25 +78,25 @@ export default async function handler(req, res) {
     };
     const contacts = contactMap[pkg];
 
+    // Sastavljanje HTML mejla
+    const html = `
+      <p>Uspješno ste kupili <strong>${userPackage}</strong>.</p>
+      ${discordLink ? `<p>Pridružite nam se na Discordu: <a href="${discordLink}">${discordLink}</a></p>` : ""}
+      ${contacts ? `
+        <p>Kontakt informacije za <strong>${userPackage}</strong>:</p>
+        <ul>
+          ${contacts.map(c => `<li>${c.label}: ${c.phone}</li>`).join("")}
+        </ul>
+      ` : ""}
+    `;
 
     try {
-     await resend.emails.send({
-      from: "info@resellerblkn.com",
-      to: customerEmail,
-      subject: "Hvala na kupnji – ResellerBalkan",
-      html: `
-        <p>Uspješno ste kupili <strong>${userPackage}</strong>. Pristup stiže uskoro!</p>
-        ${discordLink ? `<p>Pridružite nam se na Discordu: <a href="${discordLink}">${discordLink}</a></p>` : ""}
-        ${contacts ? `
-          <p>Kontakt informacije za <strong>${userPackage}</strong>:</p>
-          <ul>
-            ${contacts.map(c => `<li>${c.label}: ${c.phone}</li>`).join("")}
-          </ul>
-        ` : ""}
-      `,
-
-    });
-
+      await resend.emails.send({
+        from: "info@resellerblkn.com",
+        to: customerEmail,
+        subject: "Hvala na kupnji – ResellerBalkan",
+        html,
+      });
       console.log("📨 Email uspešno poslat ka:", customerEmail);
     } catch (mailErr) {
       console.error("❌ Greška u slanju emaila:", mailErr);
