@@ -77,13 +77,13 @@ export default function ReviewsSection() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="flex justify-center items-start h-[360px] relative overflow-hidden">
+          <div className="flex justify-center items-start h-[400px] md:h-[600px] lg:h-[800px] relative">
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentImage}
                 src={images[currentImage]}
                 alt="Rezultat"
-                className="max-w-full w-[340px] rounded-xl border border-[#333] absolute"
+                className=" max-w-full max-h-full sm:w-[300px] md:w-[400px] lg:w-[500px] rounded-xl border border-[#333] absolute"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.05 }}
