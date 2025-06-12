@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }) {
   <meta name="twitter:image" content="https://www.resellerblkn.com/images/tkosamja.webp" />
 
   {/* Favicon */}
-  <link rel="icon" href="/images/logo.png" />
+  <link rel="icon" href="https://www.resellerblkn.com/images/logo.png"/>
 </Head>
 
 
