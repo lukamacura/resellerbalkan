@@ -27,7 +27,7 @@ export default function AboutSection(){
         {/* SLIKA DESNO */}
         <div className="flex-1 flex justify-center">
           <img
-            src="/images/tkosamja.jpg"
+            src="/images/tkosamja.webp"
             alt="Marko - osnivač"
             className="w-[350px] h-[350px] object-cover rounded-full shadow-lg"
             loading="lazy"
