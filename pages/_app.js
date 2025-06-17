@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }) {
 
   {/* Open Graph + Twitter Card */}
   <meta property="og:title" content="ResellerBalkan – Reselling Hrvatska 2025" />
-  <meta property="og:description" content="Uđi u provereni reselling program i kreni da zarađuješ online još danas." />
+  <meta property="og:description" content="Uđi u provjereni reselling program i kreni da zarađuješ online još danas." />
   <meta property="og:image" content="https://www.resellerblkn.com/images/tkosamja.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
