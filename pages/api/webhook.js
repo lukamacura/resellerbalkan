@@ -98,9 +98,25 @@ export default async function handler(req, res) {
         html,
       });
       console.log("📨 Email uspešno poslat ka:", customerEmail);
+
+      // Email vlasniku sajta – obavijest o kupnji
+      await resend.emails.send({
+        from: "noreply@resellerblkn.com",
+        to: process.env.ADMIN_EMAIL, // ili direktno: "marko@resellerblkn.com"
+        subject: `🛒 Nova kupnja: ${userPackage}`,
+        html: `
+          <h2>Nova kupnja na ResellerBalkan</h2>
+          <p><strong>Paket:</strong> ${userPackage}</p>
+          <p><strong>Email kupca:</strong> ${customerEmail}</p>
+          <p>Provjeri Stripe račun za detalje transakcije.</p>
+        `,
+      });
+
     } catch (mailErr) {
       console.error("❌ Greška u slanju emaila:", mailErr);
     }
+
+    
   }
 
   return res.status(200).json({ received: true });
