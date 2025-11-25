@@ -11,6 +11,7 @@ import FaqSection from "../components/FaqSection";
 import CtaSection from "../components/CtaSection";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
+import YoutubeGallery from "../components/YoutubeGallery";
 
 
 
@@ -39,7 +40,11 @@ const handleClick = async (packageName) => {
 };
 
 
-
+const videos = [
+    "Am98rRiJY5U",
+    "e0eVg5jVmCU",
+    "gxyVM6_icr0", // samo ID
+  ];
 
 return (
    <div className="bg-[#121212] text-white min-h-screen">
@@ -73,6 +78,9 @@ return (
 
       {/* Reviews */}
       <ReviewsSection/>
+
+      {/* YoutubeGallery */}
+      <YoutubeGallery videos={videos} />
 
       {/* FAQ */}
       <FaqSection/>
