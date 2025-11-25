@@ -51,6 +51,7 @@ export default function App({ Component, pageProps }) {
 
     <main className={`${urbanist.variable} ${inter.variable} font-sans`}>
       <Component {...pageProps} />
+      <Analytics />
       <SpeedInsights />
     </main>
     
