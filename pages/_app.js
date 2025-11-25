@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { Urbanist, Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Head from 'next/head';
