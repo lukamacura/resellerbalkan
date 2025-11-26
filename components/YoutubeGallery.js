@@ -4,7 +4,7 @@ import React from "react";
 
 const YouTubeGallery = ({ videos }) => {
   // uzmi samo prva 3 videa da budeš siguran
-  const visibleVideos = videos.slice(0, 3);
+  const visibleVideos = videos.slice(0, 4);
 
   const toEmbedUrl = (input) => {
     if (!input) return "";
