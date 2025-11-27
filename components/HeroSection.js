@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-6 py-28">
+    <section className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-6 pt-36 pb-10">
       
       {/* TEXT LEFT */}
       <motion.div
@@ -13,13 +13,13 @@ export default function HeroSection() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h1 className="text-5xl md:text-6xl font-md leading-tight mb-4 font-urbanist">
+        <h1 className="text-4xl md:text-6xl font-md leading-tight mb-4 font-urbanist">
           <span className="inline-block mr-2">💸 </span>
-          Pokreni svoj{" "}
+          Zaradi svoje {" "}
           <span className="bg-gradient-to-r font-bold from-[#FFD600] to-[#FF7A00] bg-clip-text text-transparent">
-            online biznis
+            prve pare
           </span>
-          <br /> već danas
+          <br /> uz reselling u samo nekoliko dana - bez prethodnog iskustva.
         </h1>
         <motion.p
           className="text-white text-lg mb-6 font-light font-inter"
@@ -27,8 +27,8 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          Odaberi svoj <span className="font-bold">program</span> i kreni s{" "}
-          <span className="font-bold">resellingom</span>.
+          Ja sam već <b className="text-white font-extrabold">izgradio model</b>, a ti samo slijediš korake i <b className="text-white font-extrabold">monetizuješ</b> svoj online biznis.
+
         </motion.p>
         <motion.a
           href="#ponuda"
@@ -37,7 +37,7 @@ export default function HeroSection() {
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          🚀 Započni odmah
+          🚀 Hoću i ja da zarađujem
         </motion.a>
       </motion.div>
 
