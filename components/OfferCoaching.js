@@ -7,14 +7,81 @@ import Image from "next/image";
 import Popup from "reactjs-popup";
 
 import {
-  CheckCircle,
   Star,
   ShoppingBag,
   Boxes,
   Sparkles,
   Megaphone,
-  Box
+  Box,
+  AlertTriangle,
+  Rocket,
+  Truck,
+  FileText,
+  Video,
+  Images,
+  Wallet,
+  Instagram,
+  PhoneCall,
+  Users,
 } from "lucide-react";
+
+const features = [
+  {
+    text: "Pristup novom EU dobavljaču",
+    icon: Truck,
+    bgClass: "bg-green-400/20",
+    iconClass: "text-green-400",
+  },
+  {
+    text: "Sve skripte (DM, objection handling, after-sale)",
+    icon: FileText,
+    bgClass: "bg-blue-400/20",
+    iconClass: "text-blue-400",
+  },
+  {
+    text: "Video lekcije - potpuni reselling trening + izrada stranice",
+    icon: Video,
+    bgClass: "bg-purple-400/20",
+    iconClass: "text-purple-400",
+  },
+  {
+    text: "Marketing i branding module",
+    icon: Megaphone,
+    bgClass: "bg-pink-400/20",
+    iconClass: "text-pink-400",
+  },
+  {
+    text: "Content bank",
+    icon: Images,
+    bgClass: "bg-yellow-400/20",
+    iconClass: "text-yellow-400",
+  },
+  {
+    text: "Price strategy + profit tracker",
+    icon: Wallet,
+    bgClass: "bg-emerald-400/20",
+    iconClass: "text-emerald-400",
+  },
+  {
+    text: "TikTok/IG strategije koje već donose prodaju",
+    icon: Instagram,
+    bgClass: "bg-red-400/20",
+    iconClass: "text-red-400",
+  },
+  {
+    text: "Live pozivi",
+    icon: PhoneCall,
+    bgClass: "bg-cyan-400/20",
+    iconClass: "text-cyan-400",
+  },
+  {
+    text: "Zajednicu i moju direktnu pomoć",
+    icon: Users,
+    bgClass: "bg-orange-400/20",
+    iconClass: "text-orange-400",
+  },
+];
+
 
 export default function OfferCoaching() {
   const router = useRouter();
@@ -68,6 +135,10 @@ const handleSubmit = async (e) => {
 };
 
 
+
+
+
+
   return (
 
     <section className="w-full bg-[#0d0d0d] text-white py-20 font-inter">
@@ -92,12 +163,18 @@ const handleSubmit = async (e) => {
             </p>
 
           <Link
-  href="#"
-  onClick={handleButtonClick}
-  className="mt-8 inline-block px-10 py-5 rounded-xl bg-yellow-400 text-black font-bold hover:bg-yellow-300 transition"
->
-  Prijavi se sada
-</Link>
+          href="#"
+          onClick={handleButtonClick}
+          className="w-fit mt-8 flex flex-row items-center justify-start gap-2 px-10 py-5 rounded-xl bg-yellow-400 text-black font-bold hover:bg-yellow-300 transition"
+        >
+          <Rocket className="text-orange-900"/>
+          Prijavi se sada
+        </Link>
+
+        <p className="text-sm mt-4 text-white/70 flex flex-row items-center justify-start gap-2">
+          <AlertTriangle className="text-red-400"/>
+          Primam još samo 2 osobe za coaching program
+        </p>
 
 
           </div>
@@ -120,31 +197,22 @@ const handleSubmit = async (e) => {
         {/* PROGRAM INCLUDES GRID */}
         {/* ========================= */}
 
-        <div className="mb-20">
-          <h3 className="text-2xl font-semibold mb-6">Program uključuje:</h3>
+       <div className="mb-20">
+        <h3 className="text-2xl font-semibold mb-6">Program uključuje:</h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "pristup novom EU dobavljaču",
-              "sve skripte (DM, objection handling, after-sale)",
-              "video lekcije - potpuni reselling trening + izrada stranice",
-              "marketing i branding module",
-              "content bank",
-              "price strategy + profit tracker",
-              "TikTok/IG strategije koje već donose prodaju",
-              "Live pozivi",
-              "zajednicu i moju direktnu pomoć",
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="p-5 bg-white/5 border border-white/10 rounded-2xl flex items-start gap-3"
-              >
-                <CheckCircle className="text-yellow-400 w-5 h-5 mt-1" />
-                <p className="text-white/85 text-sm leading-relaxed">{item}</p>
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((item, i) => (
+            <div
+              key={i}
+              className={`p-5 ${item.bgClass} border border-white/10 rounded-2xl flex flex-col items-center justify-start gap-3`}
+            >
+              <item.icon className={`w-5 h-5 mt-1 ${item.iconClass}`} />
+              <p className="text-white/85 text-center text-sm leading-relaxed">{item.text}</p>
+            </div>
+          ))}
         </div>
+      </div>
+
 
         {/* Divider */}
         <div className="my-20 h-px w-full bg-white/10" />
@@ -259,13 +327,19 @@ const handleSubmit = async (e) => {
           </div>
         </div>
 
-        <Link
-  href="#"
-  onClick={handleButtonClick}
-  className="mt-8 inline-block px-10 py-5 rounded-xl bg-yellow-400 text-black font-bold hover:bg-yellow-300 transition"
->
-  Prijavi se sada
-</Link>
+          <Link
+          href="#"
+          onClick={handleButtonClick}
+          className="w-fit mt-8 flex flex-row items-center justify-start gap-2 px-10 py-5 rounded-xl bg-yellow-400 text-black font-bold hover:bg-yellow-300 transition"
+        >
+          <Rocket className="text-orange-900"/>
+          Prijavi se sada
+        </Link>
+
+        <p className="text-sm mt-4 text-white/70 flex flex-row items-center justify-start gap-2">
+          <AlertTriangle className="text-red-400"/>
+          Primam još samo 2 osobe za coaching program
+        </p>
 
 <Popup
   open={open}
@@ -278,7 +352,7 @@ const handleSubmit = async (e) => {
     <div className="w-[92vw] max-w-md rounded-2xl bg-[#111] border border-white/10 p-6 shadow-2xl
                     animate-in fade-in zoom-in duration-200 font-inter">
       <div className="flex items-center justify-between mb-4">
-        <h4 className="text-xl font-bold text-white">Prijava u Coaching</h4>
+        <h4 className="text-xl font-bold text-white">Prijava za Coaching program</h4>
         <button
           onClick={close}
           className="text-white/60 hover:text-white text-2xl leading-none"
