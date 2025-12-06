@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.resellerblkn.com
+
+# Sitemaps
+Sitemap: https://www.resellerblkn.com/sitemap.xml

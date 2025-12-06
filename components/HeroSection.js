@@ -15,9 +15,9 @@ export default function HeroSection() {
       >
         <h1 className="text-4xl md:text-6xl font-md leading-tight mb-4 font-urbanist">
           <span className="inline-block mr-2">💸 </span>
-          Zaradi svoje {" "}
+          Zaradi svoj {" "}
           <span className="bg-gradient-to-r font-bold from-[#FFD600] to-[#FF7A00] bg-clip-text text-transparent">
-            prve pare
+            prvi novac
           </span>
           <br /> uz reselling u samo nekoliko dana - bez prethodnog iskustva.
         </h1>
@@ -27,7 +27,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          Ja sam već <b className="text-white font-extrabold">izgradio model</b>, a ti samo slijediš korake i <b className="text-white font-extrabold">monetizuješ</b> svoj online biznis.
+          Ja sam već <b className="text-white font-extrabold">izgradio model</b>, a ti samo slijediš korake i <b className="text-white font-extrabold">monetiziraš</b> svoj online biznis.
 
         </motion.p>
         <motion.a
