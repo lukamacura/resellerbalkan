@@ -58,7 +58,7 @@ export default async function handler(req, res) {
 
     // Discord linkovi po paketima
     const linkMap = {
-      premium: "https://discord.gg/9YGEKPJgZ",
+      premium: "https://discord.gg/Naeu5K8TH8",
       coaching: "https://discord.gg/z3y2TQ9EfZ",
     };
     const discordLink = linkMap[pkg];
